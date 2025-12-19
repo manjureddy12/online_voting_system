@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - College Voting System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="auth-card card">
+        <h1 class="text-center text-primary mb-3">College Voting System</h1>
+        <h2 class="text-center mb-2">Register</h2>
+
+        <div id="registerMessage" class="hidden"></div>
+
+        <form id="registerForm" onsubmit="authModule.handleRegister(event)">
+          <div class="form-group">
+            <label for="studentId" class="form-label">Student ID</label>
+            <input
+              type="text"
+              id="studentId"
+              class="form-input"
+              placeholder="e.g., ST12345"
+              required
+              pattern="[A-Za-z0-9]{6,12}"
+              title="6-12 alphanumeric characters"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-input"
+              placeholder="Enter your full name"
+              required
+              minlength="2"
+              maxlength="50"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-input"
+              placeholder="your.email@college.edu"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-input"
+              placeholder="At least 6 characters"
+              required
+              minlength="6"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="department" class="form-label">Department</label>
+            <input
+              type="text"
+              id="department"
+              class="form-input"
+              placeholder="e.g., Computer Science"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="year" class="form-label">Year</label>
+            <select id="year" class="form-select" required>
+              <option value="">Select Year</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-success btn-block"
+            id="registerBtn"
+          >
+            Register
+          </button>
+        </form>
+
+        <p class="text-center mt-3">
+          Already have an account?
+          <a href="login.html" class="text-primary">Login here</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+      // Redirect if already logged in
+      window.authModule.redirectIfAuthenticated();
+    </script>
+  </body>
+</html>

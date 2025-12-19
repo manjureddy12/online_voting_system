@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - College Voting System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="auth-card card">
+        <h1 class="text-center text-primary mb-3">College Voting System</h1>
+        <h2 class="text-center mb-2">Login</h2>
+
+        <div id="loginMessage" class="hidden"></div>
+
+        <form id="loginForm" onsubmit="authModule.handleLogin(event)">
+          <div class="form-group">
+            <label for="studentId" class="form-label">Student ID</label>
+            <input
+              type="text"
+              id="studentId"
+              class="form-input"
+              placeholder="Enter your student ID"
+              required
+              autocomplete="username"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-input"
+              placeholder="Enter your password"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="loginBtn">
+            Login
+          </button>
+        </form>
+
+        <p class="text-center mt-3">
+          Don't have an account?
+          <a href="register.html" class="text-primary">Register here</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+      // Redirect if already logged in
+      window.authModule.redirectIfAuthenticated();
+    </script>
+  </body>
+</html>
